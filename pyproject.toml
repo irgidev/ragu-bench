@@ -29,5 +29,8 @@ src = ["src", "tests"]
 [tool.ruff.lint]
 select = ["E", "F", "I", "UP", "B"]
 
+[tool.ruff.lint.per-file-ignores]
+"data/gold/build_gold_v0.py" = ["E501"]  # verbatim grounding quotes, not prose to rewrap
+
 [tool.pytest.ini_options]
 testpaths = ["tests"]
