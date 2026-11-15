@@ -4,9 +4,9 @@ State sinkron antar sesi dalam proyek ini. Bagian Changelog append-only. Konflik
 
 ## Milestone
 
-- M0 skeleton (repo + CI hijau + schema kontrak + README + STATUS): BERJALAN
-- M1 harness + 2 model pada smoke gold set v0: BELUM
-- M2 matriks penuh + router 3 strategi: BELUM
+- M0 skeleton (repo + CI hijau + schema kontrak + README + STATUS): SELESAI (2026-11-15)
+- M1 harness + 2 model pada smoke gold set v0: SIAP DIKERJAKAN JALUR-A (menunggu key + plafon untuk live run)
+- M2 matriks penuh + router 3 strategi: BELUM (run besar menunggu plafon dari user)
 - M3 report + rilis tag v0.1.0: BELUM
 
 ## Keputusan lokal
@@ -36,4 +36,7 @@ JALUR-B boleh mengimpor API publik milik JALUR-A tetapi tidak boleh mengubah fil
 
 ## Changelog (append-only)
 
-- 2026-11-15 sesi-P1-induk: M0 dibuat (skeleton, CI, schema kontrak, README, STATUS). Sub-prompt JALUR-A dan JALUR-B menyusul di `prompts/`. Menunggu user: API key + plafon biaya.
+- 2026-11-15 sesi-P1-induk: M0 dibuat (skeleton, CI, schema kontrak, README, STATUS). Repo publik `irgidev/ragu-bench`, dua run CI pertama hijau (commit skeleton dan commit gold set).
+- 2026-11-15 sesi-P1-induk: Smoke gold set `v0-smoke` dibangun di `data/gold/gold_v0.json` (30 item: 24 answer + 6 refuse) dari korpus D1: halaman resmi user-manual Mobile JKN bpjs-kesehatan.go.id (administrasi kepesertaan, iuran, lain-lain) dan UU No. 40/2004 via transkrip Wikisource (JDIH resmi hanya menyajikan PDF yang tak ter-fetch). Semua item answer memuat kutipan + URL + tanggal akses 2026-11-15; 4 test integritas gold set ikut CI. Builder: `data/gold/build_gold_v0.py`. Gold set P0 dicek read-only masih kosong.
+- 2026-11-15 sesi-P1-induk: Pemecahan paralel sesuai PROMPT-INTI bagian 7. JALUR-A (harness + models + runner + results/runs) dan JALUR-B (metrics + router + results/*.md|png + REPORT). Sub-prompt: `prompts/SUB-P1-A-HARNESS-MODELS.md`, `prompts/SUB-P1-B-METRICS-ROUTER-REPORT.md`. Ownership per tabel di atas. Push hanya oleh sesi induk P1.
+- 2026-11-15 sesi-P1-induk: Menunggu dari user: (1) API key LLM di `.env` untuk live smoke run M1, (2) plafon biaya benchmark sebelum run besar M2. Tanpa key, JALUR-A tetap jalan dengan mock tests.
